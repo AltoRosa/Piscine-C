@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmiralle <rmiralle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/05 19:38:53 by rmiralle          #+#    #+#             */
-/*   Updated: 2018/03/06 14:42:18 by rmiralle         ###   ########.fr       */
+/*   Created: 2018/03/06 22:53:42 by rmiralle          #+#    #+#             */
+/*   Updated: 2018/03/06 23:20:53 by rmiralle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_iterative_power(int nb, int power)
+int		ft_sqrt(int nb)
 {
-	int i;
-	int res;
+	int o;
 
-	i = 0;
-	res = 1;
-	if (power < 0)
+	o = 0;
+	if (nb < 0)
 		return (0);
-	while (i < power)
+	while (o != nb)
 	{
-		res = res * nb;
-		i++;
+		if (o * o == nb)
+			return (o);
+		o++;
 	}
-	return (res);
+	return (0);
 }

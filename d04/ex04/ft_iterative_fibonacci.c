@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_iterative_fibonacci.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmiralle <rmiralle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/05 19:38:53 by rmiralle          #+#    #+#             */
-/*   Updated: 2018/03/06 14:42:18 by rmiralle         ###   ########.fr       */
+/*   Created: 2018/03/06 21:32:58 by rmiralle          #+#    #+#             */
+/*   Updated: 2018/03/06 22:37:58 by rmiralle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_iterative_power(int nb, int power)
+int     ft_fibonacci(int index)
 {
-	int i;
-	int res;
+	int a;
+	int b;
+	int tmp;
 
-	i = 0;
-	res = 1;
-	if (power < 0)
+	a = 1;
+	b = 1;
+	if (index < 0)
+		return (- 1);
+	if (index == 0)
 		return (0);
-	while (i < power)
+	while (index < 1)
 	{
-		res = res * nb;
-		i++;
+		tmp = a + b;
+		a = b;
+		b = tmp;
+		index--;
 	}
-	return (res);
+	return (a);
 }
