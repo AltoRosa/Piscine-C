@@ -6,7 +6,7 @@
 /*   By: rmiralle <rmiralle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 17:18:08 by rmiralle          #+#    #+#             */
-/*   Updated: 2018/03/07 21:27:25 by rmiralle         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:41:04 by rmiralle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,39 @@ int		check_diago2(int **tab, int x, int y)
 	return (1);
 }
 
+int		ft_verif(int **tab, int x, int y)
+{
+	if (check_line(tab, y) == 0)
+		return (0);
+	else if (check_column(tab, x) == 0)
+		return (0);
+	else if (check_diago(tab, x, y) == 0)
+		return (0);
+	else if (check_diago2(tab, x, y) == 0)
+		return (0);
+	else
+		return (1);
+}
+
+int		ft_is_one(int **tab, int x, int y)
+{
+	y = 0;
+	while (y < 8)
+	{
+		x = 0;
+		while (x < 8)
+		{
+			if (ft_verif(tab, x, y) == 1)
+			{
+				tab[y][x] = 1;
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
+
 int		main(void)
 {
 	int x;
@@ -148,8 +181,8 @@ int		main(void)
 		}
 		y++;
 	}
-	tab[4][5] = 1;
-	printf("%i\n", check_diago2(tab, 3, 6));
+	// printf("%i\n", check_diago2(tab, 3, 6));
+	ft_is_one(tab, x, y);
 	ft_print_map(tab);
 	return (0);
 }
